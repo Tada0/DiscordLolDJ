@@ -13,7 +13,8 @@ class DiscordClient(Bot):
     async def on_ready(self):
         print(f"Logged in as {self.user}")
 
-    async def load_extensions(self):
+    async def load_boot_extensions(self):
         for filename in os.listdir("./discord_client/commands"):
-            if filename.endswith('.py') and not filename.startswith('__init__'):
+            if filename.endswith('.py') and not filename.startswith('__init__') and filename.startswith('boot_'):
                 await self.load_extension(f"discord_client.commands.{filename.split('.py')[0]}")
+        await self.load_extension("discord_client.commands.player")
