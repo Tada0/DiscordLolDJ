@@ -6,3 +6,4 @@ PyNaCl==1.5.0
 cffi==1.15.1
 pycparser==2.21
 sqlalchemy==1.4.41
+mysqlclient==2.1.1
